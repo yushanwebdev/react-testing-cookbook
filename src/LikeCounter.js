@@ -1,7 +1,7 @@
 import React from "react";
 
-const LikeCounter = ({ count }) => (
-  <a>
+const LikeCounter = ({ count, isActive }) => (
+  <a className={isActive ? "LikeCounter--active" : "LikeCounter"}>
     <div>
       <span>{count} likes</span>
     </div>
