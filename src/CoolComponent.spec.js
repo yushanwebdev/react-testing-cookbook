@@ -1,6 +1,9 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
 import expect from "expect";
+import expectJSX from "expect-jsx";
+
+expect.extend(expectJSX);
 
 const CoolComponent = ({ greeting }) => (
   <div>
@@ -13,7 +16,8 @@ describe("CoolComponent", () => {
   it("should...", () => {
     const renderer = TestUtils.createRenderer();
     renderer.render(<CoolComponent greeting="Hello World" />);
-    const output = renderer.getRenderOutput();
-    console.log(output);
+    const actual = renderer.getRenderOutput();
+    const expected = <div>Hello World</div>;
+    expect(actual).toIncludeJSX(expected);
   });
 });
